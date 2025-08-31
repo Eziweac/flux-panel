@@ -124,8 +124,8 @@ jobs:
         if: steps.vite-changes.outputs.vite == 'true'
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push Vite multi-arch image
         if: steps.vite-changes.outputs.vite == 'true'
@@ -133,7 +133,7 @@ jobs:
           docker buildx build \
             --platform linux/amd64 \
             --push \
-            -t bqlpfy/vite-frontend \
+            -t eziweac/vite-frontend \
             ./vite-frontend
 
   build-java:
@@ -179,8 +179,8 @@ jobs:
         if: steps.java-changes.outputs.java == 'true'
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push Java multi-arch image
         if: steps.java-changes.outputs.java == 'true'
@@ -188,5 +188,5 @@ jobs:
           docker buildx build \
             --platform linux/amd64 \
             --push \
-            -t bqlpfy/springboot-backend \
+            -t eziweac/springboot-backend \
             ./springboot-backend
