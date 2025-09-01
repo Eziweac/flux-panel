@@ -21,6 +21,9 @@ export default defineConfig({
     host: '0.0.0.0'
   },
   build: {
+    // vvvvvvvvvv 在这里添加 target 属性 vvvvvvvvvv
+    target: 'es2022',
+    // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     outDir: 'dist',
     sourcemap: false,
     minify: false,  
